@@ -1,0 +1,154 @@
+/* Syraholic — Spring Theme
+ * Part of the Syraholic seasonal listing template system.
+ * Loaded automatically by router.js — do not link directly.
+ */
+
+:root {
+  --bg: #FAF6F0;
+  --petal: #F2D7D5;
+  --blossom: #E8A5A0;
+  --rose: #C9726D;
+  --sage: #8BA888;
+  --sage-lt: #D4E4D3;
+  --moss: #5C7A5A;
+  --stem: #3D5E3B;
+  --cream: #FDF9F4;
+  --ink: #2A2018;
+  --mid: #7A6E65;
+  --rule: #E8DDD6;
+  --font-d: 'Playfair Display', Georgia, serif;
+  --font-b: 'DM Sans', sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  font-family: var(--font-b);
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(242,215,213,0.5) 0%, transparent 40%),
+    radial-gradient(circle at 85% 10%, rgba(212,228,211,0.4) 0%, transparent 35%),
+    radial-gradient(circle at 70% 85%, rgba(232,165,160,0.2) 0%, transparent 30%),
+    radial-gradient(circle at 5% 80%, rgba(139,168,136,0.25) 0%, transparent 35%);
+  pointer-events: none; z-index: 0;
+}
+.wrap { max-width: 660px; margin: 0 auto; padding: 0 24px 60px; position: relative; z-index: 1; }
+
+/* ── SEASON STRIP ── */
+.season-strip {
+  background: linear-gradient(135deg, #d4e4d3 0%, #f2d7d5 50%, #d4e4d3 100%);
+  padding: 10px 16px; text-align: center;
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--moss);
+}
+
+/* ── ILLUSTRATED BANNER ── */
+.illus-banner {
+  position: relative;
+  background: linear-gradient(160deg, #f0f5ef 0%, #faf0ee 100%);
+  border-bottom: 1px solid var(--rule);
+  overflow: hidden;
+  height: 110px;
+  display: flex; align-items: center; justify-content: center;
+}
+.illus-banner svg {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+}
+.illus-banner .logo-centre {
+  position: relative; z-index: 2;
+  text-align: center;
+}
+.logo-text {
+  font-family: var(--font-d);
+  font-size: 26px; font-weight: 400;
+  letter-spacing: 0.1em; color: var(--stem);
+  display: block;
+}
+.season-badge {
+  display: inline-block;
+  background: var(--petal); color: var(--rose);
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  padding: 4px 14px; border-radius: 20px;
+  margin-top: 4px;
+}
+
+/* ── TITLE ── */
+.title-block { margin: 26px 0 20px; }
+.item-title {
+  font-family: var(--font-d);
+  font-size: 26px; font-weight: 400; line-height: 1.25;
+  color: var(--ink); margin-bottom: 12px;
+}
+.meta-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.pill { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; }
+.pill-size { background: var(--sage-lt); color: var(--moss); }
+.pill-cond { background: var(--petal); color: var(--rose); }
+.rrp { font-size: 12px; color: var(--mid); text-decoration: line-through; }
+
+/* ── DIVIDER ── */
+.divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--blossom), var(--sage), transparent);
+  margin: 22px 0; opacity: 0.6;
+}
+
+/* ── SECTIONS ── */
+.section-label {
+  font-size: 10px; font-weight: 500; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--sage); margin-bottom: 10px;
+  display: flex; align-items: center; gap: 8px;
+}
+.section-label::before, .section-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+.description {
+  font-family: var(--font-d); font-size: 17px; font-weight: 400; font-style: italic;
+  line-height: 1.8; color: var(--ink); margin-bottom: 18px;
+}
+.features { list-style: none; margin-bottom: 10px; }
+.features li {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 13px; font-weight: 300; padding: 7px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.features li::before { content: '✿'; color: var(--blossom); font-size: 12px; flex-shrink: 0; margin-top: 1px; }
+.fabric {
+  font-size: 12px; color: var(--mid); margin-top: 10px;
+  padding: 10px 14px; background: var(--cream); border-left: 3px solid var(--sage);
+}
+
+/* ── MEASUREMENTS ── */
+.meas-table { width: 100%; border-collapse: collapse; background: var(--cream); border: 1px solid var(--rule); margin-bottom: 4px; }
+.meas-table td { padding: 9px 14px; font-size: 13px; border-bottom: 1px solid var(--rule); }
+.meas-table tr:last-child td { border-bottom: none; }
+.meas-table td:first-child { color: var(--mid); width: 55%; }
+.meas-table td:last-child { font-weight: 500; text-align: right; color: var(--moss); }
+.meas-note { font-size: 11px; color: var(--mid); font-style: italic; margin-top: 6px; }
+
+/* ── INFO GRID ── */
+.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+.info-cell { background: var(--cream); padding: 13px 16px; }
+.info-label { font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); margin-bottom: 3px; }
+.info-value { font-size: 13px; color: var(--ink); }
+
+/* ── TRUST ── */
+.trust-row { display: flex; border: 1px solid var(--rule); border-top: none; }
+.trust-item { flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 16px 8px; background: var(--cream); border-right: 1px solid var(--rule); }
+.trust-item:last-child { border-right: none; }
+.trust-icon { font-size: 18px; margin-bottom: 5px; }
+.trust-label { font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); margin-bottom: 2px; }
+.trust-sub { font-size: 10px; color: var(--mid); }
+
+/* ── FOOTER ── */
+.syr-footer {
+  margin-top: 26px; padding-top: 18px; border-top: 1px solid var(--rule);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.footer-brand { font-family: var(--font-d); font-size: 13px; font-style: italic; color: var(--mid); }
+.footer-right { font-size: 10px; color: var(--mid); text-align: right; line-height: 1.8; }
