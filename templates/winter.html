@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Syraholic — Winter</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F7FB;
+  --bg2: #EEF3FA;
+  --frost: #DDEAF8;
+  --ice: #C8DDEF;
+  --plum: #7B4E8A;
+  --plum-lt: #EDE3F2;
+  --plum-mid: #C4A8D4;
+  --emerald: #2E6B50;
+  --emerald-lt: #D4EAE0;
+  --champagne: #B8966E;
+  --champ-lt: #F5ECD8;
+  --silver: #8899AA;
+  --rule: #D4E2F0;
+  --ink: #1E2840;
+  --mid: #6678AA;
+  --cream: #FAFCFF;
+  --font-d: 'EB Garamond', Georgia, serif;
+  --font-b: 'Jost', sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  font-family: var(--font-b);
+  color: var(--ink);
+  font-size: 14px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: ''; position: fixed; inset: 0;
+  background-image:
+    radial-gradient(ellipse at 80% 10%, rgba(123,78,138,0.1) 0%, transparent 45%),
+    radial-gradient(ellipse at 15% 85%, rgba(46,107,80,0.1) 0%, transparent 45%),
+    radial-gradient(ellipse at 50% 50%, rgba(200,221,239,0.3) 0%, transparent 60%);
+  pointer-events: none; z-index: 0;
+}
+.wrap { max-width: 660px; margin: 0 auto; padding: 0 24px 60px; position: relative; z-index: 1; }
+
+.season-strip {
+  background: linear-gradient(90deg, var(--plum), #3A5898, var(--emerald));
+  padding: 10px 16px; text-align: center;
+  font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase;
+  color: #EEF3FA;
+}
+
+/* ── ILLUSTRATED BANNER ── */
+.illus-banner {
+  position: relative;
+  background: linear-gradient(180deg, #e8f0fa 0%, #f0f5ff 50%, #e4eff8 100%);
+  border-bottom: 1px solid var(--rule); overflow: hidden; height: 155px;
+  display: flex; align-items: center; justify-content: center;
+}
+.illus-banner svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+.logo-centre { position: relative; z-index: 2; text-align: center; }
+.logo-text { font-family: var(--font-d); font-size: 28px; font-weight: 400; letter-spacing: 0.12em; color: var(--ink); display: block; }
+.season-badge {
+  display: inline-block;
+  border: 1.5px solid var(--plum-mid); color: var(--plum);
+  background: rgba(237,227,242,0.7);
+  font-size: 10px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase;
+  padding: 4px 14px; margin-top: 4px;
+}
+
+.title-block { margin: 26px 0 20px; }
+.item-title { font-family: var(--font-d); font-size: 27px; font-weight: 400; line-height: 1.25; color: var(--ink); margin-bottom: 12px; }
+.meta-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.pill { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 14px; }
+.pill-size { background: var(--emerald-lt); color: var(--emerald); border: 1px solid rgba(46,107,80,0.25); }
+.pill-cond { background: var(--plum-lt); color: var(--plum); border: 1px solid rgba(123,78,138,0.25); }
+.pill-rrp { background: transparent; color: var(--mid); border: 1px solid var(--rule); }
+
+.divider { height: 1px; background: linear-gradient(to right, transparent, var(--plum-mid), var(--ice), var(--emerald-lt), transparent); margin: 22px 0; }
+
+.section-label { font-size: 10px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--champagne); margin-bottom: 10px; }
+.description { font-family: var(--font-d); font-size: 19px; font-weight: 400; font-style: italic; line-height: 1.8; color: var(--ink); margin-bottom: 18px; }
+.features { list-style: none; margin-bottom: 10px; }
+.features li { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; font-weight: 300; padding: 7px 0; border-bottom: 1px solid var(--rule); color: var(--ink); }
+.features li::before { content: '❄'; color: var(--ice); font-size: 12px; flex-shrink: 0; margin-top: 1px; }
+.fabric { font-size: 12px; color: var(--mid); margin-top: 10px; padding: 10px 14px; background: var(--champ-lt); border-left: 3px solid var(--champagne); }
+
+.meas-table { width: 100%; border-collapse: collapse; background: var(--cream); border: 1px solid var(--rule); margin-bottom: 4px; }
+.meas-table td { padding: 9px 14px; font-size: 13px; border-bottom: 1px solid var(--rule); }
+.meas-table tr:last-child td { border-bottom: none; }
+.meas-table td:first-child { color: var(--mid); width: 55%; }
+.meas-table td:last-child { font-weight: 500; text-align: right; color: var(--plum); }
+.meas-note { font-size: 11px; color: var(--mid); font-style: italic; margin-top: 6px; }
+
+/* ── AI-MIGRATE SECTIONS ── */
+.section-block { margin-bottom: 22px; }
+.product-intro { font-family: var(--font-d); font-size: 19px; font-weight: 400; font-style: italic; line-height: 1.8; color: var(--ink); margin-bottom: 14px; }
+.rrp { font-size: 11px; font-weight: 500; color: var(--mid); letter-spacing: 0.05em; }
+.measurements-note { font-size: 12px; color: #888; margin-top: 8px; font-style: italic; }
+.condition-note { font-size: 12px; color: var(--mid); padding: 10px 14px; background: var(--cream); border-left: 3px solid var(--champagne); margin-top: 10px; line-height: 1.6; font-style: italic; }
+.condition-note::before { content: 'Condition: '; font-weight: 600; font-style: normal; letter-spacing: 0.05em; }
+.detail-list { list-style: none; margin-bottom: 10px; }
+.detail-item { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; font-weight: 300; padding: 7px 0; border-bottom: 1px solid var(--rule); }
+.detail-icon { color: var(--ice); font-size: 12px; flex-shrink: 0; margin-top: 1px; }
+
+.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+.info-cell { background: var(--cream); padding: 13px 16px; }
+.info-label { font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--plum); margin-bottom: 3px; }
+.info-value { font-size: 13px; color: var(--ink); }
+
+.trust-row { display: flex; border: 1px solid var(--rule); border-top: none; }
+.trust-item { flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 16px 8px; background: var(--cream); border-right: 1px solid var(--rule); }
+.trust-item:last-child { border-right: none; }
+.trust-icon { font-size: 18px; margin-bottom: 5px; color: var(--champagne); }
+.trust-label { font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); margin-bottom: 2px; }
+.trust-sub { font-size: 10px; color: var(--mid); }
+
+.snowflake-row { text-align: center; font-size: 16px; letter-spacing: 10px; color: var(--ice); margin: 18px 0 0; user-select: none; }
+
+.syr-footer { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--rule); display: flex; align-items: center; justify-content: space-between; }
+.footer-brand { font-family: var(--font-d); font-size: 14px; font-style: italic; color: var(--mid); }
+.footer-right { font-size: 10px; color: var(--mid); text-align: right; line-height: 1.8; }
+.security-notice { display:flex; align-items:flex-start; gap:10px; background:#EDE3F2; border:1px solid #C4A8D4; border-left:3px solid #7B4E8A; padding:12px 16px; margin-top:14px; font-size:12px; color:#4A2E5A; line-height:1.6; }
+.security-notice .security-icon { font-size:15px; flex-shrink:0; margin-top:1px; }
+.security-notice p { margin:0; }
+</style>
+</head>
+<body>
+<div class="season-strip">❄ Winter · December — February ❄</div>
+
+<!-- ILLUSTRATED WINTER BANNER -->
+<div class="illus-banner">
+  <svg viewBox="0 0 660 150" xmlns="http://www.w3.org/2000/svg">
+    <rect width="660" height="150" fill="none"/>
+
+    <!-- Snowy ground -->
+    <path d="M 0 136 Q 80 130 160 134 Q 220 137 280 133 Q 380 130 450 134 Q 540 138 660 133 L 660 150 L 0 150 Z" fill="white" opacity="0.7"/>
+
+    <!-- LEFT SIDE — Snowman -->
+    <g transform="translate(75, 108)" opacity="0.9">
+      <!-- Bottom ball -->
+      <circle cx="0" cy="0" r="22" fill="white" stroke="#C8DDEF" stroke-width="1.5"/>
+      <!-- Middle ball -->
+      <circle cx="0" cy="-38" r="16" fill="white" stroke="#C8DDEF" stroke-width="1.2"/>
+      <!-- Head -->
+      <circle cx="0" cy="-66" r="12" fill="white" stroke="#C8DDEF" stroke-width="1.2"/>
+      <!-- Eyes -->
+      <circle cx="-4" cy="-69" r="2" fill="#1E2840"/>
+      <circle cx="4" cy="-69" r="2" fill="#1E2840"/>
+      <!-- Carrot nose -->
+      <path d="M 0 -66 L 7 -64 L 0 -62 Z" fill="#C8684A"/>
+      <!-- Smile dots -->
+      <circle cx="-4" cy="-60" r="1.2" fill="#1E2840"/>
+      <circle cx="0" cy="-58" r="1.2" fill="#1E2840"/>
+      <circle cx="4" cy="-60" r="1.2" fill="#1E2840"/>
+      <!-- Buttons on middle -->
+      <circle cx="0" cy="-42" r="2" fill="#7B4E8A"/>
+      <circle cx="0" cy="-36" r="2" fill="#7B4E8A"/>
+      <circle cx="0" cy="-30" r="2" fill="#7B4E8A"/>
+      <!-- Scarf -->
+      <path d="M -16 -52 Q 0 -48 16 -52 Q 14 -46 16 -42 Q 0 -46 -12 -44 Q -14 -48 -16 -52 Z" fill="#B85C38" opacity="0.85"/>
+      <path d="M 14 -44 Q 18 -38 16 -34" stroke="#B85C38" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.8"/>
+      <!-- Hat -->
+      <rect x="-11" y="-82" width="22" height="14" rx="1" fill="#1E2840" opacity="0.85"/>
+      <rect x="-14" y="-69" width="28" height="4" rx="1" fill="#1E2840" opacity="0.85"/>
+      <!-- Hat band -->
+      <rect x="-11" y="-76" width="22" height="4" fill="#7B4E8A" opacity="0.7"/>
+      <!-- Arms - twigs -->
+      <path d="M -22 -38 Q -35 -42 -44 -38 Q -40 -44 -36 -48" stroke="#5C3820" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.8"/>
+      <path d="M -36 -42 Q -40 -50 -38 -54" stroke="#5C3820" stroke-width="1.3" fill="none" opacity="0.6"/>
+      <path d="M 22 -38 Q 35 -42 44 -38 Q 40 -44 36 -48" stroke="#5C3820" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.8"/>
+      <!-- Small snowflakes near snowman -->
+      <text x="-50" y="-60" fill="#C8DDEF" font-size="10" opacity="0.7">❄</text>
+      <text x="30" y="-80" fill="#C8DDEF" font-size="8" opacity="0.5">❅</text>
+    </g>
+
+    <!-- CHRISTMAS TREE right side -->
+    <g transform="translate(580, 112)" opacity="0.85">
+      <!-- Tree layers -->
+      <polygon points="0,-60 -32,0 32,0" fill="#2E6B50"/>
+      <polygon points="0,-80 -26,-25 26,-25" fill="#3A8060"/>
+      <polygon points="0,-95 -20,-48 20,-48" fill="#2E6B50"/>
+      <!-- Star top -->
+      <polygon points="0,-105 3,-98 10,-98 5,-93 7,-86 0,-90 -7,-86 -5,-93 -10,-98 -3,-98" fill="#F2B84B" opacity="0.9"/>
+      <!-- Trunk -->
+      <rect x="-5" y="0" width="10" height="14" fill="#5C3820"/>
+      <!-- Snow on branches -->
+      <path d="M -32 0 Q -16 -4 0 0 Q 16 -4 32 0" stroke="white" stroke-width="3" fill="none" opacity="0.7"/>
+      <path d="M -26 -25 Q -13 -29 0 -25 Q 13 -29 26 -25" stroke="white" stroke-width="2.5" fill="none" opacity="0.65"/>
+      <path d="M -20 -48 Q -10 -52 0 -48 Q 10 -52 20 -48" stroke="white" stroke-width="2" fill="none" opacity="0.6"/>
+      <!-- Baubles -->
+      <circle cx="-15" cy="-8" r="4.5" fill="#C8684A" opacity="0.85"/>
+      <circle cx="18" cy="-12" r="4" fill="#7B4E8A" opacity="0.85"/>
+      <circle cx="5" cy="-32" r="3.5" fill="#B8966E" opacity="0.85"/>
+      <circle cx="-16" cy="-35" r="3.5" fill="#2E6B50" opacity="0.7" stroke="white" stroke-width="0.8"/>
+      <circle cx="12" cy="-52" r="3" fill="#C8684A" opacity="0.8"/>
+      <circle cx="-8" cy="-55" r="2.5" fill="#7B4E8A" opacity="0.8"/>
+      <!-- Tinsel hint -->
+      <path d="M -30 -4 Q -15 -10 0 -4 Q 15 -10 30 -4" stroke="#B8966E" stroke-width="1" fill="none" opacity="0.5" stroke-dasharray="2,3"/>
+      <!-- Gift box below tree -->
+      <rect x="-18" y="14" width="16" height="14" rx="1" fill="#C8684A" opacity="0.7"/>
+      <rect x="-18" y="14" width="16" height="4" rx="1" fill="#B85C38" opacity="0.8"/>
+      <line x1="-10" y1="14" x2="-10" y2="28" stroke="#F5E6C8" stroke-width="1" opacity="0.7"/>
+      <path d="M -10 14 Q -13 10 -10 8 Q -7 10 -10 14" fill="#F5E6C8" opacity="0.7"/>
+      <!-- Small gift -->
+      <rect x="4" y="18" width="12" height="10" rx="1" fill="#7B4E8A" opacity="0.7"/>
+      <line x1="10" y1="18" x2="10" y2="28" stroke="#C4A8D4" stroke-width="1" opacity="0.7"/>
+    </g>
+
+    <!-- SNOWFLAKES scattered -->
+    <!-- Large decorative snowflake -->
+    <g transform="translate(220, 42)" opacity="0.35" stroke="#7B4E8A" stroke-width="1.2" fill="none">
+      <line x1="0" y1="-18" x2="0" y2="18"/>
+      <line x1="-18" y1="0" x2="18" y2="0"/>
+      <line x1="-13" y1="-13" x2="13" y2="13"/>
+      <line x1="13" y1="-13" x2="-13" y2="13"/>
+      <circle cx="0" cy="0" r="3" fill="#C8DDEF" stroke="none" opacity="0.8"/>
+      <circle cx="0" cy="-18" r="2" fill="#C8DDEF" stroke="none"/>
+      <circle cx="0" cy="18" r="2" fill="#C8DDEF" stroke="none"/>
+      <circle cx="-18" cy="0" r="2" fill="#C8DDEF" stroke="none"/>
+      <circle cx="18" cy="0" r="2" fill="#C8DDEF" stroke="none"/>
+    </g>
+
+    <!-- Medium snowflake -->
+    <g transform="translate(430, 28)" opacity="0.3" stroke="#2E6B50" stroke-width="1" fill="none">
+      <line x1="0" y1="-14" x2="0" y2="14"/>
+      <line x1="-14" y1="0" x2="14" y2="0"/>
+      <line x1="-10" y1="-10" x2="10" y2="10"/>
+      <line x1="10" y1="-10" x2="-10" y2="10"/>
+      <circle cx="0" cy="0" r="2.5" fill="#CCE8D8" stroke="none" opacity="0.8"/>
+    </g>
+
+    <!-- Tiny snowflakes -->
+    <text x="190" y="25" fill="#C8DDEF" font-size="12" opacity="0.5">❄</text>
+    <text x="350" y="55" fill="#C4A8D4" font-size="10" opacity="0.4">❅</text>
+    <text x="480" y="38" fill="#C8DDEF" font-size="8" opacity="0.45">❆</text>
+    <text x="160" y="68" fill="#C4A8D4" font-size="8" opacity="0.35">❄</text>
+    <text x="400" y="80" fill="#C8DDEF" font-size="9" opacity="0.3">❅</text>
+
+    <!-- Holly sprig -->
+    <g transform="translate(320, 22)" opacity="0.6">
+      <path d="M 0 0 Q 8 -4 12 0 Q 8 4 0 0 Z" fill="#2E6B50"/>
+      <path d="M 0 0 Q -8 -4 -12 0 Q -8 4 0 0 Z" fill="#2E6B50"/>
+      <path d="M 0 0 Q 4 8 0 12 Q -4 8 0 0 Z" fill="#3A8060"/>
+      <circle cx="0" cy="0" r="3.5" fill="#C8684A"/>
+      <circle cx="3" cy="-2" r="2.5" fill="#B85C38"/>
+      <circle cx="-3" cy="-2" r="2.5" fill="#C8684A"/>
+    </g>
+
+    <!-- Icicles from top -->
+    <g opacity="0.4" fill="#C8DDEF">
+      <path d="M 245 0 L 243 12 L 247 0 Z"/>
+      <path d="M 255 0 L 253 18 L 257 0 Z"/>
+      <path d="M 265 0 L 263 9 L 267 0 Z"/>
+    </g>
+
+    <!-- Falling snow dots -->
+    <g fill="white" opacity="0.6">
+      <circle cx="195" cy="50" r="2.5"/>
+      <circle cx="210" cy="30" r="2"/>
+      <circle cx="285" cy="60" r="2"/>
+      <circle cx="360" cy="40" r="2.5"/>
+      <circle cx="380" cy="70" r="2"/>
+      <circle cx="415" cy="50" r="2.5"/>
+      <circle cx="455" cy="30" r="2"/>
+      <circle cx="470" cy="65" r="2"/>
+    </g>
+  </svg>
+  <div class="logo-centre">
+    <span class="logo-text">Syraholic</span>
+    <span class="season-badge">Rare &amp; Iconic Finds</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="meta-row" style="margin:8px 0 4px;"><!-- CONDITION_START --><span class="pill pill-cond"><!-- CONDITION_VALUE --></span><!-- CONDITION_END --><!-- SIZE_START --><span class="pill pill-size"><!-- SIZE_VALUE --></span><!-- SIZE_END --><!-- RRP_START --><span class="pill pill-rrp">RRP: <!-- RRP_VALUE --></span><!-- RRP_END --></div>
+
+  <!-- PRODUCT_CONTENT -->
+
+  <div class="divider"></div>
+
+  <div class="title-block">
+    <p class="section-label">Listing info</p>
+    <div class="info-grid">
+      <div class="info-cell"><div class="info-label">Dispatch</div><div class="info-value">Next working day</div></div>
+      <div class="info-cell"><div class="info-label">Returns</div><div class="info-value">30 days accepted</div></div>
+      <div class="info-cell"><div class="info-label">Postage</div><div class="info-value">Free UK delivery</div></div>
+      <div class="info-cell"><div class="info-label">Feedback</div><div class="info-value">100% · 21K+</div></div>
+    </div>
+    <div class="trust-row">
+      <div class="trust-item"><div class="trust-icon">✦</div><div class="trust-label">Authentic</div><div class="trust-sub">All items guaranteed</div></div>
+      <div class="trust-item"><div class="trust-icon">◈</div><div class="trust-label">Trusted Seller</div><div class="trust-sub">5-Star Rated</div></div>
+      <div class="trust-item"><div class="trust-icon">◻</div><div class="trust-label">46K+ Sold</div><div class="trust-sub">Since 2010</div></div>
+    </div>
+  </div>
+
+  <div class="security-notice">
+    <span class="security-icon">🔒</span>
+    <p>To ensure authenticity and condition, items are shipped with a security tag or ribbon attached. We cannot accept returns if these have been removed or tampered with.</p>
+  </div>
+
+  <footer class="syr-footer">
+    <span class="footer-brand">Syraholic — curated fashion</span>
+    <span class="footer-right">Bedford, UK<br>Questions? Message us</span>
+  </footer>
+
+</div>
+</body>
+</html>

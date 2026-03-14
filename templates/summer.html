@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Syraholic — Summer</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FFFAF2;
+  --sand: #F5E6C8;
+  --terra: #C8684A;
+  --terra-lt: #F5D5C8;
+  --coral: #E8856A;
+  --sun: #F2B84B;
+  --sun-lt: #FDF0CC;
+  --teal: #4A8B8C;
+  --teal-lt: #CCE8E8;
+  --cream: #FFFDF7;
+  --ink: #1E1410;
+  --mid: #7A6458;
+  --rule: #EAD8C4;
+  --font-d: 'Libre Baskerville', Georgia, serif;
+  --font-b: 'Outfit', sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); font-family: var(--font-b); color: var(--ink); font-size: 14px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+body::before {
+  content: ''; position: fixed; inset: 0;
+  background-image:
+    radial-gradient(ellipse at 90% 5%, rgba(242,184,75,0.25) 0%, transparent 40%),
+    radial-gradient(ellipse at 10% 95%, rgba(200,104,74,0.15) 0%, transparent 40%);
+  pointer-events: none; z-index: 0;
+}
+.wrap { max-width: 660px; margin: 0 auto; padding: 0 24px 60px; position: relative; z-index: 1; }
+
+.season-strip {
+  background: var(--terra);
+  padding: 10px 16px; text-align: center;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--sand);
+}
+
+/* ── ILLUSTRATED BANNER ── */
+.illus-banner {
+  position: relative; background: linear-gradient(180deg, #fff8ee 0%, #ffefd4 100%);
+  border-bottom: 2px solid var(--terra-lt); overflow: hidden; height: 120px;
+  display: flex; align-items: center; justify-content: center;
+}
+.illus-banner svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+.logo-centre { position: relative; z-index: 2; text-align: center; }
+.logo-text { font-family: var(--font-d); font-size: 28px; font-weight: 700; letter-spacing: 0.06em; color: var(--terra); display: block; }
+.season-badge { display: inline-block; background: var(--sun); color: var(--ink); font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; padding: 4px 14px; margin-top: 4px; }
+
+.title-block { margin: 26px 0 20px; }
+.item-title { font-family: var(--font-d); font-size: 25px; font-weight: 400; line-height: 1.3; color: var(--ink); margin-bottom: 12px; }
+.meta-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.pill { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 5px 14px; }
+.pill-size { background: var(--teal-lt); color: var(--teal); }
+.pill-cond { background: var(--terra-lt); color: var(--terra); }
+.pill-rrp { background: transparent; color: var(--mid); border: 1px solid var(--rule); }
+
+.accent-bar { height: 3px; background: linear-gradient(to right, var(--terra), var(--sun), var(--coral)); margin: 22px 0; }
+.divider { height: 2px; background: linear-gradient(to right, transparent, var(--coral), var(--sun), transparent); margin: 22px 0; opacity: 0.7; }
+
+.section-label { font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--terra); margin-bottom: 10px; }
+.description { font-family: var(--font-d); font-size: 17px; font-weight: 400; font-style: italic; line-height: 1.8; color: var(--ink); margin-bottom: 18px; }
+.features { list-style: none; margin-bottom: 10px; }
+.features li { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; font-weight: 300; padding: 7px 0; border-bottom: 1px solid var(--rule); }
+.features li::before { content: '☀'; color: var(--sun); font-size: 12px; flex-shrink: 0; margin-top: 1px; }
+.fabric { font-size: 12px; color: var(--mid); margin-top: 10px; padding: 10px 14px; background: var(--sun-lt); border-left: 3px solid var(--sun); }
+
+.meas-table { width: 100%; border-collapse: collapse; background: var(--cream); border: 1px solid var(--rule); margin-bottom: 4px; }
+.meas-table td { padding: 9px 14px; font-size: 13px; border-bottom: 1px solid var(--rule); }
+.meas-table tr:last-child td { border-bottom: none; }
+.meas-table td:first-child { color: var(--mid); width: 55%; }
+.meas-table td:last-child { font-weight: 600; text-align: right; color: var(--terra); }
+.meas-note { font-size: 11px; color: var(--mid); font-style: italic; margin-top: 6px; }
+
+/* ── AI-MIGRATE SECTIONS ── */
+.section-block { margin-bottom: 22px; }
+.product-intro { font-family: var(--font-d); font-size: 17px; font-weight: 400; font-style: italic; line-height: 1.8; color: var(--ink); margin-bottom: 14px; }
+.rrp { font-size: 11px; font-weight: 500; color: var(--mid); letter-spacing: 0.05em; }
+.measurements-note { font-size: 12px; color: #888; margin-top: 8px; font-style: italic; }
+.condition-note { font-size: 12px; color: var(--mid); padding: 10px 14px; background: var(--cream); border-left: 3px solid var(--sun); margin-top: 10px; line-height: 1.6; font-style: italic; }
+.condition-note::before { content: 'Condition: '; font-weight: 600; font-style: normal; letter-spacing: 0.05em; }
+.detail-list { list-style: none; margin-bottom: 10px; }
+.detail-item { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; font-weight: 300; padding: 7px 0; border-bottom: 1px solid var(--rule); }
+.detail-icon { color: var(--sun); font-size: 12px; flex-shrink: 0; margin-top: 1px; }
+
+.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+.info-cell { background: var(--cream); padding: 13px 16px; }
+.info-label { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); margin-bottom: 3px; }
+.info-value { font-size: 13px; color: var(--ink); }
+
+.trust-row { display: flex; border: 1px solid var(--rule); border-top: none; }
+.trust-item { flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 16px 8px; background: var(--cream); border-right: 1px solid var(--rule); }
+.trust-item:last-child { border-right: none; }
+.trust-icon { font-size: 18px; margin-bottom: 5px; color: var(--terra); }
+.trust-label { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); margin-bottom: 2px; }
+.trust-sub { font-size: 10px; color: var(--mid); }
+
+.syr-footer { margin-top: 26px; padding-top: 18px; border-top: 2px solid var(--terra-lt); display: flex; align-items: center; justify-content: space-between; }
+.footer-brand { font-family: var(--font-d); font-size: 13px; font-style: italic; color: var(--mid); }
+.footer-right { font-size: 10px; color: var(--mid); text-align: right; line-height: 1.8; }
+.security-notice { display:flex; align-items:flex-start; gap:10px; background:#FFF3EE; border:1px solid #F5D5C8; border-left:3px solid #C8684A; padding:12px 16px; margin-top:14px; font-size:12px; color:#7A4030; line-height:1.6; }
+.security-notice .security-icon { font-size:15px; flex-shrink:0; margin-top:1px; }
+.security-notice p { margin:0; }
+</style>
+</head>
+<body>
+<div class="season-strip">☀ Summer · June — August ☀</div>
+
+<!-- ILLUSTRATED SUMMER BANNER -->
+<div class="illus-banner">
+  <svg viewBox="0 0 660 120" xmlns="http://www.w3.org/2000/svg">
+    <rect width="660" height="120" fill="none"/>
+
+    <!-- LEFT SIDE — beach scene -->
+    <!-- Sea / horizon line -->
+    <path d="M 0 85 Q 40 82 80 85 Q 120 88 160 85" stroke="#4A8B8C" stroke-width="1" fill="none" opacity="0.4"/>
+    <!-- Waves -->
+    <path d="M 0 90 Q 15 87 30 90 Q 45 93 60 90 Q 75 87 90 90 Q 105 93 120 90" stroke="#4A8B8C" stroke-width="0.8" fill="none" opacity="0.35"/>
+
+    <!-- Parasol / sunshade -->
+    <line x1="72" y1="120" x2="68" y2="65" stroke="#C8684A" stroke-width="1.8" opacity="0.8"/>
+    <path d="M 40 68 Q 68 48 96 68 Q 82 56 68 54 Q 54 56 40 68 Z" fill="#F2B84B" opacity="0.75"/>
+    <path d="M 40 68 Q 54 56 68 54 L 68 68 Z" fill="#E8856A" opacity="0.6"/>
+    <path d="M 68 54 Q 82 56 96 68 L 68 68 Z" fill="#C8684A" opacity="0.55"/>
+
+    <!-- Towel on sand -->
+    <rect x="20" y="100" width="55" height="16" rx="2" fill="#F2B84B" opacity="0.5"/>
+    <line x1="20" y1="104" x2="75" y2="104" stroke="#E8856A" stroke-width="0.8" opacity="0.5"/>
+    <line x1="20" y1="108" x2="75" y2="108" stroke="#E8856A" stroke-width="0.8" opacity="0.5"/>
+    <line x1="20" y1="112" x2="75" y2="112" stroke="#E8856A" stroke-width="0.8" opacity="0.5"/>
+
+    <!-- Sunglasses on towel -->
+    <circle cx="42" cy="97" r="5" fill="none" stroke="#C8684A" stroke-width="1.2" opacity="0.7"/>
+    <circle cx="55" cy="97" r="5" fill="none" stroke="#C8684A" stroke-width="1.2" opacity="0.7"/>
+    <line x1="36" y1="97" x2="32" y2="96" stroke="#C8684A" stroke-width="1.2" opacity="0.7"/>
+    <line x1="47" y1="97" x2="50" y2="97" stroke="#C8684A" stroke-width="1.2" opacity="0.7"/>
+    <line x1="60" y1="97" x2="64" y2="96" stroke="#C8684A" stroke-width="1.2" opacity="0.7"/>
+
+    <!-- Hibiscus flower left -->
+    <g transform="translate(115, 55)" opacity="0.75">
+      <ellipse rx="9" ry="5" fill="#E8856A" transform="rotate(0)"/>
+      <ellipse rx="9" ry="5" fill="#C8684A" transform="rotate(72)"/>
+      <ellipse rx="9" ry="5" fill="#E8856A" transform="rotate(144)"/>
+      <ellipse rx="9" ry="5" fill="#F2B84B" opacity="0.8" transform="rotate(216)"/>
+      <ellipse rx="9" ry="5" fill="#E8856A" transform="rotate(288)"/>
+      <circle r="4" fill="#F5C842"/>
+      <line x1="0" y1="0" x2="0" y2="-10" stroke="#C8684A" stroke-width="1" opacity="0.6"/>
+    </g>
+    <!-- Stem for hibiscus -->
+    <path d="M 115 65 Q 114 85 112 100" stroke="#5C7A5A" stroke-width="1.2" fill="none" opacity="0.5"/>
+    <path d="M 113 80 Q 105 76 102 70" fill="#8BA888" opacity="0.5"/>
+
+    <!-- Sun top left -->
+    <circle cx="28" cy="25" r="12" fill="#F2B84B" opacity="0.4"/>
+    <circle cx="28" cy="25" r="8" fill="#F2B84B" opacity="0.5"/>
+    <!-- Sun rays -->
+    <g stroke="#F2B84B" stroke-width="1.2" opacity="0.5">
+      <line x1="28" y1="8" x2="28" y2="3"/>
+      <line x1="28" y1="42" x2="28" y2="47"/>
+      <line x1="11" y1="25" x2="6" y2="25"/>
+      <line x1="45" y1="25" x2="50" y2="25"/>
+      <line x1="16" y1="13" x2="12" y2="9"/>
+      <line x1="40" y1="37" x2="44" y2="41"/>
+      <line x1="40" y1="13" x2="44" y2="9"/>
+      <line x1="16" y1="37" x2="12" y2="41"/>
+    </g>
+
+    <!-- RIGHT SIDE — tropical flowers & palm -->
+    <!-- Palm trunk -->
+    <path d="M 620 120 Q 618 90 622 65 Q 624 50 618 35" stroke="#8B6E5A" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.7"/>
+    <!-- Palm fronds -->
+    <path d="M 618 35 Q 595 25 580 15" stroke="#5C7A5A" stroke-width="2" fill="none" opacity="0.65"/>
+    <path d="M 618 35 Q 640 22 655 18" stroke="#5C7A5A" stroke-width="2" fill="none" opacity="0.65"/>
+    <path d="M 618 35 Q 600 40 588 48" stroke="#5C7A5A" stroke-width="1.8" fill="none" opacity="0.6"/>
+    <path d="M 618 35 Q 638 42 650 50" stroke="#5C7A5A" stroke-width="1.8" fill="none" opacity="0.6"/>
+    <path d="M 618 35 Q 618 20 616 10" stroke="#5C7A5A" stroke-width="1.8" fill="none" opacity="0.55"/>
+    <!-- Frond leaves detail -->
+    <path d="M 618 35 Q 595 25 580 15 Q 592 20 605 28 Q 612 31 618 35" fill="#8BA888" opacity="0.3"/>
+    <path d="M 618 35 Q 640 22 655 18 Q 643 26 630 31 Q 624 33 618 35" fill="#5C7A5A" opacity="0.25"/>
+
+    <!-- Tropical flower 1 — plumeria -->
+    <g transform="translate(555, 72)" opacity="0.8">
+      <ellipse rx="8" ry="4.5" fill="#F5E6C8" transform="rotate(0)"/>
+      <ellipse rx="8" ry="4.5" fill="#FDF9F4" transform="rotate(72)"/>
+      <ellipse rx="8" ry="4.5" fill="#F5E6C8" transform="rotate(144)"/>
+      <ellipse rx="8" ry="4.5" fill="#FDF9F4" transform="rotate(216)"/>
+      <ellipse rx="8" ry="4.5" fill="#F5E6C8" transform="rotate(288)"/>
+      <circle r="3.5" fill="#F2B84B" opacity="0.9"/>
+    </g>
+
+    <!-- Tropical flower 2 — hibiscus right -->
+    <g transform="translate(648, 75)" opacity="0.7">
+      <ellipse rx="9" ry="5" fill="#E8856A" transform="rotate(15)"/>
+      <ellipse rx="9" ry="5" fill="#C8684A" transform="rotate(87)"/>
+      <ellipse rx="9" ry="5" fill="#E8856A" transform="rotate(159)"/>
+      <ellipse rx="9" ry="5" fill="#F2B84B" opacity="0.8" transform="rotate(231)"/>
+      <ellipse rx="9" ry="5" fill="#E8856A" transform="rotate(303)"/>
+      <circle r="4" fill="#F5C842"/>
+    </g>
+
+    <!-- Flamingo silhouette hint -->
+    <g transform="translate(490, 50)" opacity="0.25" fill="#E8856A">
+      <ellipse cx="0" cy="0" rx="10" ry="14" transform="rotate(-20)"/>
+      <path d="M -4 13 Q -2 28 2 35 Q 0 36 -2 35 Q -4 28 -6 13 Z"/>
+      <path d="M -6 13 Q -8 28 -4 35 Q -6 36 -8 35 Q -10 28 -8 13 Z"/>
+      <ellipse cx="2" cy="-14" rx="6" ry="8" transform="rotate(-15)"/>
+    </g>
+
+    <!-- Seashell small -->
+    <g transform="translate(160, 108)" opacity="0.5">
+      <path d="M 0 0 Q 8 -5 12 0 Q 8 5 0 0 Z" fill="#F5E6C8"/>
+      <path d="M 2 0 Q 7 -4 10 0" stroke="#EAD8C4" stroke-width="0.6" fill="none"/>
+      <path d="M 4 0 Q 8 -3 10 0" stroke="#EAD8C4" stroke-width="0.6" fill="none"/>
+    </g>
+
+    <!-- Sand dots bottom -->
+    <g opacity="0.2" fill="#C8684A">
+      <circle cx="180" cy="115" r="1.5"/>
+      <circle cx="190" cy="112" r="1"/>
+      <circle cx="200" cy="116" r="1.5"/>
+      <circle cx="470" cy="114" r="1.5"/>
+      <circle cx="480" cy="116" r="1"/>
+    </g>
+  </svg>
+  <div class="logo-centre">
+    <span class="logo-text">Syraholic</span>
+    <span class="season-badge">Rare &amp; Iconic Finds</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="meta-row" style="margin:8px 0 4px;"><!-- CONDITION_START --><span class="pill pill-cond"><!-- CONDITION_VALUE --></span><!-- CONDITION_END --><!-- SIZE_START --><span class="pill pill-size"><!-- SIZE_VALUE --></span><!-- SIZE_END --><!-- RRP_START --><span class="pill pill-rrp">RRP: <!-- RRP_VALUE --></span><!-- RRP_END --></div>
+
+  <!-- PRODUCT_CONTENT -->
+
+  <div class="divider"></div>
+
+  <div class="title-block">
+    <p class="section-label">Listing info</p>
+    <div class="info-grid">
+      <div class="info-cell"><div class="info-label">Dispatch</div><div class="info-value">Next working day</div></div>
+      <div class="info-cell"><div class="info-label">Returns</div><div class="info-value">30 days accepted</div></div>
+      <div class="info-cell"><div class="info-label">Postage</div><div class="info-value">Free UK delivery</div></div>
+      <div class="info-cell"><div class="info-label">Feedback</div><div class="info-value">100% · 21K+</div></div>
+    </div>
+    <div class="trust-row">
+      <div class="trust-item"><div class="trust-icon">✦</div><div class="trust-label">Authentic</div><div class="trust-sub">All items guaranteed</div></div>
+      <div class="trust-item"><div class="trust-icon">◈</div><div class="trust-label">Trusted Seller</div><div class="trust-sub">5-Star Rated</div></div>
+      <div class="trust-item"><div class="trust-icon">◻</div><div class="trust-label">46K+ Sold</div><div class="trust-sub">Since 2010</div></div>
+    </div>
+  </div>
+
+  <div class="security-notice">
+    <span class="security-icon">🔒</span>
+    <p>To ensure authenticity and condition, items are shipped with a security tag or ribbon attached. We cannot accept returns if these have been removed or tampered with.</p>
+  </div>
+
+  <footer class="syr-footer">
+    <span class="footer-brand">Syraholic — curated fashion</span>
+    <span class="footer-right">Bedford, UK<br>Questions? Message us</span>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "syraholic-season-engine",
+  "version": "1.0.0",
+  "description": "Seasonal template engine for eBay listings",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "node-cron": "^3.0.3",
+    "xml2js": "^0.6.2"
+  }
+}

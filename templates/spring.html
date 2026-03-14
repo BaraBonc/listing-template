@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Syraholic — Spring</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAF6F0;
+  --petal: #F2D7D5;
+  --blossom: #E8A5A0;
+  --rose: #C9726D;
+  --sage: #8BA888;
+  --sage-lt: #D4E4D3;
+  --moss: #5C7A5A;
+  --stem: #3D5E3B;
+  --cream: #FDF9F4;
+  --ink: #2A2018;
+  --mid: #7A6E65;
+  --rule: #E8DDD6;
+  --font-d: 'Playfair Display', Georgia, serif;
+  --font-b: 'DM Sans', sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  font-family: var(--font-b);
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(242,215,213,0.5) 0%, transparent 40%),
+    radial-gradient(circle at 85% 10%, rgba(212,228,211,0.4) 0%, transparent 35%),
+    radial-gradient(circle at 70% 85%, rgba(232,165,160,0.2) 0%, transparent 30%),
+    radial-gradient(circle at 5% 80%, rgba(139,168,136,0.25) 0%, transparent 35%);
+  pointer-events: none; z-index: 0;
+}
+.wrap { max-width: 660px; margin: 0 auto; padding: 0 24px 60px; position: relative; z-index: 1; }
+
+/* ── SEASON STRIP ── */
+.season-strip {
+  background: linear-gradient(135deg, #d4e4d3 0%, #f2d7d5 50%, #d4e4d3 100%);
+  padding: 10px 16px; text-align: center;
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--moss);
+}
+
+/* ── ILLUSTRATED BANNER ── */
+.illus-banner {
+  position: relative;
+  background: linear-gradient(160deg, #f0f5ef 0%, #faf0ee 100%);
+  border-bottom: 1px solid var(--rule);
+  overflow: hidden;
+  height: 110px;
+  display: flex; align-items: center; justify-content: center;
+}
+.illus-banner svg {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+}
+.illus-banner .logo-centre {
+  position: relative; z-index: 2;
+  text-align: center;
+}
+.logo-text {
+  font-family: var(--font-d);
+  font-size: 26px; font-weight: 400;
+  letter-spacing: 0.1em; color: var(--stem);
+  display: block;
+}
+.season-badge {
+  display: inline-block;
+  background: var(--petal); color: var(--rose);
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  padding: 4px 14px; border-radius: 20px;
+  margin-top: 4px;
+}
+
+/* ── TITLE ── */
+.title-block { margin: 26px 0 20px; }
+.item-title {
+  font-family: var(--font-d);
+  font-size: 26px; font-weight: 400; line-height: 1.25;
+  color: var(--ink); margin-bottom: 12px;
+}
+.meta-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.pill { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; }
+.pill-size { background: var(--sage-lt); color: var(--moss); }
+.pill-cond { background: var(--petal); color: var(--rose); }
+.pill-rrp { background: transparent; color: var(--mid); border: 1px solid var(--rule); }
+
+/* ── DIVIDER ── */
+.divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--blossom), var(--sage), transparent);
+  margin: 22px 0; opacity: 0.6;
+}
+
+/* ── SECTIONS ── */
+.section-label {
+  font-size: 10px; font-weight: 500; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--sage); margin-bottom: 10px;
+  display: flex; align-items: center; gap: 8px;
+}
+.section-label::before, .section-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+.description {
+  font-family: var(--font-d); font-size: 17px; font-weight: 400; font-style: italic;
+  line-height: 1.8; color: var(--ink); margin-bottom: 18px;
+}
+.features { list-style: none; margin-bottom: 10px; }
+.features li {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 13px; font-weight: 300; padding: 7px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.features li::before { content: '✿'; color: var(--blossom); font-size: 12px; flex-shrink: 0; margin-top: 1px; }
+.fabric {
+  font-size: 12px; color: var(--mid); margin-top: 10px;
+  padding: 10px 14px; background: var(--cream); border-left: 3px solid var(--sage);
+}
+
+/* ── MEASUREMENTS ── */
+.meas-table { width: 100%; border-collapse: collapse; background: var(--cream); border: 1px solid var(--rule); margin-bottom: 4px; }
+.meas-table td { padding: 9px 14px; font-size: 13px; border-bottom: 1px solid var(--rule); }
+.meas-table tr:last-child td { border-bottom: none; }
+.meas-table td:first-child { color: var(--mid); width: 55%; }
+.meas-table td:last-child { font-weight: 500; text-align: right; color: var(--moss); }
+.meas-note { font-size: 11px; color: var(--mid); font-style: italic; margin-top: 6px; }
+
+/* ── AI-MIGRATE SECTIONS ── */
+.section-block { margin-bottom: 22px; }
+.product-intro { font-family: var(--font-d); font-size: 17px; font-weight: 400; font-style: italic; line-height: 1.8; color: var(--ink); margin-bottom: 14px; }
+.rrp { font-size: 11px; font-weight: 500; color: var(--mid); letter-spacing: 0.05em; }
+.condition-note { font-size: 12px; color: var(--mid); padding: 10px 14px; background: var(--cream); border-left: 3px solid var(--sage); margin-top: 10px; line-height: 1.6; font-style: italic; }
+.condition-note::before { content: 'Condition: '; font-weight: 600; font-style: normal; letter-spacing: 0.05em; }
+.detail-list { list-style: none; margin-bottom: 10px; }
+.detail-item { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; font-weight: 300; padding: 7px 0; border-bottom: 1px solid var(--rule); }
+.detail-icon { color: var(--blossom); font-size: 12px; flex-shrink: 0; margin-top: 1px; }
+.measurements-note { font-size: 12px; color: #888; margin-top: 8px; font-style: italic; }
+
+/* ── INFO GRID ── */
+.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+.info-cell { background: var(--cream); padding: 13px 16px; }
+.info-label { font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); margin-bottom: 3px; }
+.info-value { font-size: 13px; color: var(--ink); }
+
+/* ── TRUST ── */
+.trust-row { display: flex; border: 1px solid var(--rule); border-top: none; }
+.trust-item { flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 16px 8px; background: var(--cream); border-right: 1px solid var(--rule); }
+.trust-item:last-child { border-right: none; }
+.trust-icon { font-size: 18px; margin-bottom: 5px; }
+.trust-label { font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); margin-bottom: 2px; }
+.trust-sub { font-size: 10px; color: var(--mid); }
+
+/* ── FOOTER ── */
+.syr-footer {
+  margin-top: 26px; padding-top: 18px; border-top: 1px solid var(--rule);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.footer-brand { font-family: var(--font-d); font-size: 13px; font-style: italic; color: var(--mid); }
+.footer-right { font-size: 10px; color: var(--mid); text-align: right; line-height: 1.8; }
+.security-notice { display:flex; align-items:flex-start; gap:10px; background:#F2F7F2; border:1px solid #C8D8C5; border-left:3px solid #5C7A5A; padding:12px 16px; margin-top:14px; font-size:12px; color:#3D5E3B; line-height:1.6; }
+.security-notice .security-icon { font-size:15px; flex-shrink:0; margin-top:1px; }
+.security-notice p { margin:0; }
+</style>
+</head>
+<body>
+<div class="season-strip">🌱 Spring · March — May 🌸</div>
+
+<!-- ILLUSTRATED HEADER BANNER -->
+<div class="illus-banner">
+  <svg viewBox="0 0 660 110" xmlns="http://www.w3.org/2000/svg">
+    <!-- Soft background wash -->
+    <rect width="660" height="110" fill="none"/>
+
+    <!-- LEFT SIDE — tulip cluster -->
+    <!-- Stem 1 -->
+    <path d="M 55 105 Q 58 80 62 65" stroke="#5C7A5A" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <!-- Leaf -->
+    <path d="M 58 82 Q 48 75 44 68 Q 52 70 58 82" fill="#8BA888" opacity="0.7"/>
+    <!-- Tulip 1 -->
+    <path d="M 55 65 Q 52 52 58 46 Q 64 40 68 46 Q 72 52 68 65 Z" fill="#E8A5A0" opacity="0.85"/>
+    <path d="M 62 65 Q 60 50 63 44" stroke="#C9726D" stroke-width="0.8" fill="none" opacity="0.5"/>
+
+    <!-- Stem 2 -->
+    <path d="M 82 105 Q 80 78 76 60" stroke="#5C7A5A" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <!-- Leaf 2 -->
+    <path d="M 80 78 Q 90 71 94 64 Q 86 66 80 78" fill="#8BA888" opacity="0.6"/>
+    <!-- Tulip 2 -->
+    <path d="M 69 60 Q 67 47 73 41 Q 79 35 83 41 Q 87 47 84 60 Z" fill="#F2D7D5" opacity="0.9"/>
+
+    <!-- Stem 3 small -->
+    <path d="M 38 105 Q 36 88 40 76" stroke="#5C7A5A" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+    <!-- Small daisy -->
+    <circle cx="40" cy="72" r="4" fill="#FDF9F4" opacity="0.9"/>
+    <circle cx="40" cy="68" r="2.5" fill="#FDF9F4" opacity="0.8"/>
+    <circle cx="36" cy="70" r="2.5" fill="#F2D7D5" opacity="0.8"/>
+    <circle cx="44" cy="70" r="2.5" fill="#F2D7D5" opacity="0.8"/>
+    <circle cx="38" cy="75" r="2.5" fill="#F2D7D5" opacity="0.8"/>
+    <circle cx="42" cy="75" r="2.5" fill="#E8A5A0" opacity="0.7"/>
+    <circle cx="40" cy="72" r="2" fill="#F5C842" opacity="0.8"/>
+
+    <!-- Floating petals left -->
+    <ellipse cx="25" cy="45" rx="5" ry="3" fill="#F2D7D5" opacity="0.5" transform="rotate(-30 25 45)"/>
+    <ellipse cx="15" cy="70" rx="4" ry="2.5" fill="#E8A5A0" opacity="0.4" transform="rotate(20 15 70)"/>
+    <ellipse cx="100" cy="30" rx="4" ry="2.5" fill="#D4E4D3" opacity="0.5" transform="rotate(-15 100 30)"/>
+
+    <!-- RIGHT SIDE — cherry blossom branch -->
+    <!-- Main branch -->
+    <path d="M 660 105 Q 620 70 590 45 Q 575 32 560 25" stroke="#8B6E5A" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <!-- Sub branch -->
+    <path d="M 590 45 Q 610 35 625 20" stroke="#8B6E5A" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <path d="M 605 60 Q 625 50 640 38" stroke="#8B6E5A" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    <path d="M 572 35 Q 555 28 545 18" stroke="#8B6E5A" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+
+    <!-- Blossom clusters - 5 petal each -->
+    <!-- Blossom 1 at tip -->
+    <g transform="translate(558,22)">
+      <ellipse rx="5" ry="3" fill="#F2D7D5" opacity="0.9" transform="rotate(0)"/>
+      <ellipse rx="5" ry="3" fill="#F2D7D5" opacity="0.9" transform="rotate(72)"/>
+      <ellipse rx="5" ry="3" fill="#E8A5A0" opacity="0.8" transform="rotate(144)"/>
+      <ellipse rx="5" ry="3" fill="#F2D7D5" opacity="0.9" transform="rotate(216)"/>
+      <ellipse rx="5" ry="3" fill="#E8A5A0" opacity="0.8" transform="rotate(288)"/>
+      <circle r="2.5" fill="#F5C842" opacity="0.9"/>
+    </g>
+    <!-- Blossom 2 -->
+    <g transform="translate(624,18)">
+      <ellipse rx="5" ry="3" fill="#E8A5A0" opacity="0.85" transform="rotate(20)"/>
+      <ellipse rx="5" ry="3" fill="#F2D7D5" opacity="0.9" transform="rotate(92)"/>
+      <ellipse rx="5" ry="3" fill="#E8A5A0" opacity="0.8" transform="rotate(164)"/>
+      <ellipse rx="5" ry="3" fill="#F2D7D5" opacity="0.9" transform="rotate(236)"/>
+      <ellipse rx="5" ry="3" fill="#E8A5A0" opacity="0.85" transform="rotate(308)"/>
+      <circle r="2.5" fill="#F5C842" opacity="0.9"/>
+    </g>
+    <!-- Blossom 3 -->
+    <g transform="translate(639,36)">
+      <ellipse rx="4.5" ry="2.8" fill="#F2D7D5" opacity="0.8" transform="rotate(10)"/>
+      <ellipse rx="4.5" ry="2.8" fill="#E8A5A0" opacity="0.85" transform="rotate(82)"/>
+      <ellipse rx="4.5" ry="2.8" fill="#F2D7D5" opacity="0.8" transform="rotate(154)"/>
+      <ellipse rx="4.5" ry="2.8" fill="#E8A5A0" opacity="0.8" transform="rotate(226)"/>
+      <ellipse rx="4.5" ry="2.8" fill="#F2D7D5" opacity="0.85" transform="rotate(298)"/>
+      <circle r="2" fill="#F5C842" opacity="0.9"/>
+    </g>
+    <!-- Blossom 4 -->
+    <g transform="translate(544,16)">
+      <ellipse rx="4" ry="2.5" fill="#E8A5A0" opacity="0.7" transform="rotate(0)"/>
+      <ellipse rx="4" ry="2.5" fill="#F2D7D5" opacity="0.8" transform="rotate(72)"/>
+      <ellipse rx="4" ry="2.5" fill="#E8A5A0" opacity="0.7" transform="rotate(144)"/>
+      <ellipse rx="4" ry="2.5" fill="#F2D7D5" opacity="0.8" transform="rotate(216)"/>
+      <ellipse rx="4" ry="2.5" fill="#E8A5A0" opacity="0.75" transform="rotate(288)"/>
+      <circle r="2" fill="#F5C842" opacity="0.8"/>
+    </g>
+    <!-- Blossom 5 on sub branch -->
+    <g transform="translate(608,58)">
+      <ellipse rx="4.5" ry="2.8" fill="#F2D7D5" opacity="0.8" transform="rotate(15)"/>
+      <ellipse rx="4.5" ry="2.8" fill="#E8A5A0" opacity="0.8" transform="rotate(87)"/>
+      <ellipse rx="4.5" ry="2.8" fill="#F2D7D5" opacity="0.85" transform="rotate(159)"/>
+      <ellipse rx="4.5" ry="2.8" fill="#E8A5A0" opacity="0.75" transform="rotate(231)"/>
+      <ellipse rx="4.5" ry="2.8" fill="#F2D7D5" opacity="0.8" transform="rotate(303)"/>
+      <circle r="2" fill="#F5C842" opacity="0.85"/>
+    </g>
+
+    <!-- Floating petals right -->
+    <ellipse cx="510" cy="50" rx="4" ry="2.5" fill="#F2D7D5" opacity="0.45" transform="rotate(25 510 50)"/>
+    <ellipse cx="530" cy="75" rx="3.5" ry="2" fill="#E8A5A0" opacity="0.4" transform="rotate(-15 530 75)"/>
+    <ellipse cx="490" cy="85" rx="4" ry="2.5" fill="#F2D7D5" opacity="0.35" transform="rotate(40 490 85)"/>
+
+    <!-- Small butterfly top centre -->
+    <g transform="translate(320, 28)" opacity="0.5">
+      <path d="M0 0 Q-12 -10 -18 -2 Q-12 4 0 0" fill="#E8A5A0" opacity="0.7"/>
+      <path d="M0 0 Q12 -10 18 -2 Q12 4 0 0" fill="#E8A5A0" opacity="0.7"/>
+      <path d="M0 0 Q-7 6 -10 12 Q-5 10 0 0" fill="#C9726D" opacity="0.6"/>
+      <path d="M0 0 Q7 6 10 12 Q5 10 0 0" fill="#C9726D" opacity="0.6"/>
+      <line x1="0" y1="-2" x2="-4" y2="-10" stroke="#5C7A5A" stroke-width="0.8"/>
+      <line x1="0" y1="-2" x2="4" y2="-10" stroke="#5C7A5A" stroke-width="0.8"/>
+    </g>
+
+    <!-- Small grass blades bottom -->
+    <path d="M 150 110 Q 152 95 148 82" stroke="#8BA888" stroke-width="1" fill="none" opacity="0.4"/>
+    <path d="M 155 110 Q 158 90 162 78" stroke="#5C7A5A" stroke-width="1.2" fill="none" opacity="0.35"/>
+    <path d="M 500 110 Q 496 93 492 80" stroke="#8BA888" stroke-width="1" fill="none" opacity="0.35"/>
+    <path d="M 495 110 Q 498 92 502 79" stroke="#5C7A5A" stroke-width="1.1" fill="none" opacity="0.3"/>
+  </svg>
+  <div class="logo-centre">
+    <span class="logo-text">Syraholic</span>
+    <span class="season-badge">Rare &amp; Iconic Finds</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="meta-row" style="margin:8px 0 4px;"><!-- CONDITION_START --><span class="pill pill-cond"><!-- CONDITION_VALUE --></span><!-- CONDITION_END --><!-- SIZE_START --><span class="pill pill-size"><!-- SIZE_VALUE --></span><!-- SIZE_END --><!-- RRP_START --><span class="pill pill-rrp">RRP: <!-- RRP_VALUE --></span><!-- RRP_END --></div>
+
+  <!-- PRODUCT_CONTENT -->
+
+  <div class="divider"></div>
+
+  <div class="title-block">
+    <p class="section-label">Listing info</p>
+    <div class="info-grid">
+      <div class="info-cell"><div class="info-label">Dispatch</div><div class="info-value">Next working day</div></div>
+      <div class="info-cell"><div class="info-label">Returns</div><div class="info-value">30 days accepted</div></div>
+      <div class="info-cell"><div class="info-label">Postage</div><div class="info-value">Free UK delivery</div></div>
+      <div class="info-cell"><div class="info-label">Feedback</div><div class="info-value">100% · 21K+</div></div>
+    </div>
+    <div class="trust-row">
+      <div class="trust-item"><div class="trust-icon">✦</div><div class="trust-label">Authentic</div><div class="trust-sub">All items guaranteed</div></div>
+      <div class="trust-item"><div class="trust-icon">◈</div><div class="trust-label">Trusted Seller</div><div class="trust-sub">5-Star Rated</div></div>
+      <div class="trust-item"><div class="trust-icon">◻</div><div class="trust-label">46K+ Sold</div><div class="trust-sub">Since 2010</div></div>
+    </div>
+  </div>
+
+  <div class="security-notice">
+    <span class="security-icon">🔒</span>
+    <p>To ensure authenticity and condition, items are shipped with a security tag or ribbon attached. We cannot accept returns if these have been removed or tampered with.</p>
+  </div>
+
+  <footer class="syr-footer">
+    <span class="footer-brand">Syraholic — curated fashion</span>
+    <span class="footer-right">Bedford, UK<br>Questions? Message us</span>
+  </footer>
+
+</div>
+</body>
+</html>
